@@ -1,7 +1,5 @@
 package edu.hw1;
 
-import java.util.logging.Logger;
-
 public class Task2 {
     private final long number;
     private static final int TRANCATION_VALUE = 10;

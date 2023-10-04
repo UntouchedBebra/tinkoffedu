@@ -1,7 +1,5 @@
 package edu.hw1;
 
-import java.util.logging.Logger;
-
 public class Task1 {
     private final static int CONVERT_MINUTES_TO_SECONDS = 60;
     private final static int HIGHEST_BOUNDARY_OF_SECONDS = 59;

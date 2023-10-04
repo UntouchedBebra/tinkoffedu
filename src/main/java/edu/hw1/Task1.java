@@ -44,7 +44,8 @@ public class Task1 {
     }
 
     private boolean boundariesAreFollowed() {
-        return (parts[0] <= Long.MAX_VALUE) && (parts[1] <= Long.MAX_VALUE);
+        return (parts[0] <= Long.MAX_VALUE)
+               && (parts[1] <= Long.MAX_VALUE);
     }
 
     private boolean checkNumbersArePositiveOrZero() {
@@ -54,7 +55,6 @@ public class Task1 {
     private boolean rightPartIsLessSixty() {
         return parts[1] <= HIGHEST_BOUNDARY_OF_SECONDS;
     }
-
 
 }
 

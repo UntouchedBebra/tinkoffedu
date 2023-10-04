@@ -6,7 +6,7 @@ public class Task0 {
     private static final Logger LOGGER = Logger.getLogger(Task0.class.getName());
 
     private Task0() {
-        throw new AssertionError("Нет необходимости создавать объекты данного класс.");
+        throw new AssertionError("Нет необходимости создавать объекты данного класса.");
     }
 
     public static void printHelloWorld() {

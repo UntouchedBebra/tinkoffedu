@@ -19,9 +19,6 @@ public class Task2 {
         return count;
     }
 
-}
-
-class Check2 {
     public static void main(String[] args) {
         final Logger LOGGER = Logger.getLogger(Task0.class.getName());
 
@@ -30,3 +27,4 @@ class Check2 {
         LOGGER.info(String.valueOf(task2.numbersQuantity()));
     }
 }
+

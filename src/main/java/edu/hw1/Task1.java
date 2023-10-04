@@ -6,15 +6,17 @@ public class Task1 {
     private final String videoLength;
     private int[] parts;
 
+    final static int convertMinutesToSeconds = 60;
+
     public Task1(String videoLength) {
         this.videoLength = videoLength;
-        int[] parts = null;
+        parts = null;
     }
 
     public int stringProcessing() {
         // Проверка на пустоту строки, наличия символа ':'
         if (!videoLength.isEmpty() && videoLength.contains(":") && stringCheckup()) {
-            return parts[0] * 60 + parts[1];
+            return parts[0] * convertMinutesToSeconds + parts[1];
         } else {
             return -1;
         }
@@ -53,9 +55,6 @@ public class Task1 {
         return parts[1] <= 59;
     }
 
-}
-
-class Check1 {
     public static void main(String[] args) {
 
         final Logger LOGGER = Logger.getLogger(Task1.class.getName());
@@ -64,5 +63,6 @@ class Check1 {
 
         LOGGER.info(String.valueOf(task1.stringProcessing()));
     }
+
 }
 

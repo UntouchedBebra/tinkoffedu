@@ -7,7 +7,7 @@ public class Task6 {
     private final static int LOWEST_BOUNDARY = 1000;
     private final static int MAX_DIGITS_COUNT = 4;
     private final int number;
-    private String stringNumber;
+    private final String stringNumber;
     private int iterationsCount;
 
     public Task6(int number) {

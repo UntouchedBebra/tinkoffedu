@@ -20,21 +20,5 @@ public class Task2 {
         return count;
     }
 
-    /**
-     * Главный метод приложения для проверки подающихся чисел
-     * Здесь происходит:
-     * 1. Создание экземпляра класса Task2
-     * 2. Выполняется обработка поданного числа
-     * 3. Выводится результат ( количество цифр в числе )
-     *
-     * @param args Аргументы командной строки ( не используются )
-     */
-    public static void main(String[] args) {
-        final Logger LOGGER = Logger.getLogger(Task0.class.getName());
-
-        Task2 task2 = new Task2(Long.valueOf(100));
-
-        LOGGER.info(String.valueOf(task2.numbersQuantity()));
-    }
 }
 

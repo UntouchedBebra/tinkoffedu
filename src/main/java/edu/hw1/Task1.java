@@ -57,22 +57,6 @@ public class Task1 {
         return parts[1] <= HIGHEST_BOUNDARY_OF_SECONDS;
     }
 
-    /**
-     * Главный метод приложения для проверки строк
-     * Здесь происходит:
-     * 1. Создание экземпляра класса Task1
-     * 2. Выполняется обработка поданной строки
-     * 3. Выводится результат
-     *
-     * @param args Аргументы командной строки ( не используются )
-     */
-    public static void main(String[] args) {
 
-        final Logger LOGGER = Logger.getLogger(Task1.class.getName());
-
-        Task1 task1 = new Task1("10:21");
-
-        LOGGER.info(String.valueOf(task1.stringProcessing()));
-    }
 }
 

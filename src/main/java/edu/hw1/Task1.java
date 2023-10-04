@@ -5,14 +5,13 @@ import java.util.logging.Logger;
 public class Task1 {
     private final String videoLength;
     private int[] parts;
-    private static final Logger LOGGER = Logger.getLogger(Task1.class.getName());
 
     public Task1(String videoLength) {
         this.videoLength = videoLength;
         int[] parts = null;
     }
 
-    private int stringProcessing() {
+    public int stringProcessing() {
         // Проверка на пустоту строки, наличия символа ':'
         if (!videoLength.isEmpty() && videoLength.contains(":") && stringCheckup()) {
             return parts[0] * 60 + parts[1];
@@ -23,10 +22,11 @@ public class Task1 {
     }
 
     private boolean stringCheckup() {
-        return checkPartsAreNumbers() && checkNumbersArePositiveOrZero() && rightPartIsLessSixty();
+        return checkPartsAreNumbers() && checkNumbersArePositiveOrZero() && boundariesAreFollowed() &&
+            rightPartIsLessSixty();
     }
 
-    public boolean checkPartsAreNumbers() throws NumberFormatException, ArrayIndexOutOfBoundsException {
+    private boolean checkPartsAreNumbers() throws NumberFormatException, ArrayIndexOutOfBoundsException {
         try {
             String[] stringParts = videoLength.split(":");
             parts = new int[2];
@@ -41,6 +41,10 @@ public class Task1 {
         }
     }
 
+    private boolean boundariesAreFollowed() {
+        return (parts[0] <= Long.MAX_VALUE) && (parts[1] <= Long.MAX_VALUE);
+    }
+
     private boolean checkNumbersArePositiveOrZero() {
         return (parts[0] >= 0) && (parts[1] >= 0);
     }
@@ -49,8 +53,15 @@ public class Task1 {
         return parts[1] <= 59;
     }
 
+}
+
+class Check1 {
     public static void main(String[] args) {
+
+        final Logger LOGGER = Logger.getLogger(Task1.class.getName());
+
         Task1 task1 = new Task1("10:21");
+
         LOGGER.info(String.valueOf(task1.stringProcessing()));
     }
 }

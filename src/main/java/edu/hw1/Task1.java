@@ -6,7 +6,8 @@ public class Task1 {
     private final String videoLength;
     private int[] parts;
 
-    final static int convertMinutesToSeconds = 60;
+    private final static int CONVERT_MINUTES_TO_SECONDS = 60;
+    private final static int HIGHEST_BOUNDARY_OF_SECONDS = 59;
 
     public Task1(String videoLength) {
         this.videoLength = videoLength;
@@ -16,7 +17,7 @@ public class Task1 {
     public int stringProcessing() {
         // Проверка на пустоту строки, наличия символа ':'
         if (!videoLength.isEmpty() && videoLength.contains(":") && stringCheckup()) {
-            return parts[0] * convertMinutesToSeconds + parts[1];
+            return parts[0] * CONVERT_MINUTES_TO_SECONDS + parts[1];
         } else {
             return -1;
         }
@@ -37,9 +38,7 @@ public class Task1 {
             }
             return true;
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-            {
-                return false;
-            }
+            return false;
         }
     }
 
@@ -52,9 +51,18 @@ public class Task1 {
     }
 
     private boolean rightPartIsLessSixty() {
-        return parts[1] <= 59;
+        return parts[1] <= HIGHEST_BOUNDARY_OF_SECONDS;
     }
 
+    /**
+     * Главный метод приложения для проверки строк
+     * Здесь происходит:
+     * 1. Создание экземпляра класса Task1
+     * 2. Выполняется обработка поданной строки
+     * 3. Выводится результат
+     *
+     * @param args Аргументы командной строки ( не используются )
+     */
     public static void main(String[] args) {
 
         final Logger LOGGER = Logger.getLogger(Task1.class.getName());

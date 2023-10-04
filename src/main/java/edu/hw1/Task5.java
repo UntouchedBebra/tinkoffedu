@@ -34,18 +34,10 @@ public class Task5 {
     private void makeOffspring() {
         char[] digits = String.valueOf(absNumber).toCharArray();
         String newNumber = "";
-        for (int i = 0; i < digits.length; ) {
+        for (int i = 0; i < digits.length; i += 2) {
             newNumber += ((long) digits[i] - '0' + (long) digits[i + 1] - '0');
-            i += 2;
         }
         absNumber = Long.parseLong(newNumber);
     }
 
-    public static void main(String[] args) {
-        Logger LOGGER = Logger.getLogger(Task5.class.getName());
-
-        Task5 task5 = new Task5(9988);
-
-        LOGGER.info(String.valueOf(task5.numberCheckup()));
-    }
 }

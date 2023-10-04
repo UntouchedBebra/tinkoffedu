@@ -12,9 +12,8 @@ public class Task4 {
             && initialString != null) {
             char[] symbolsArray = initialString.toCharArray();
             char bucket;
-            for (int i = 0; i < initialString.length() - 1; ) {
+            for (int i = 0; i < initialString.length() - 1; i += 2) {
                 swap(symbolsArray, i, i + 1);
-                i += 2;
             }
             return new String(symbolsArray);
         } else {

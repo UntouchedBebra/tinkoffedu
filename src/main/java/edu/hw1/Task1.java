@@ -3,11 +3,10 @@ package edu.hw1;
 import java.util.logging.Logger;
 
 public class Task1 {
-    private final String videoLength;
-    private int[] parts;
-
     private final static int CONVERT_MINUTES_TO_SECONDS = 60;
     private final static int HIGHEST_BOUNDARY_OF_SECONDS = 59;
+    private final String videoLength;
+    private int[] parts;
 
     public Task1(String videoLength) {
         this.videoLength = videoLength;
@@ -16,7 +15,9 @@ public class Task1 {
 
     public int stringProcessing() {
         // Проверка на пустоту строки, наличия символа ':'
-        if (!videoLength.isEmpty() && videoLength.contains(":") && stringCheckup()) {
+        if (!videoLength.isEmpty()
+            && videoLength.contains(":")
+            && stringCheckup()) {
             return parts[0] * CONVERT_MINUTES_TO_SECONDS + parts[1];
         } else {
             return -1;
@@ -25,8 +26,10 @@ public class Task1 {
     }
 
     private boolean stringCheckup() {
-        return checkPartsAreNumbers() && checkNumbersArePositiveOrZero() && boundariesAreFollowed() &&
-            rightPartIsLessSixty();
+        return checkPartsAreNumbers()
+               && checkNumbersArePositiveOrZero()
+               && boundariesAreFollowed()
+               && rightPartIsLessSixty();
     }
 
     private boolean checkPartsAreNumbers() throws NumberFormatException, ArrayIndexOutOfBoundsException {
@@ -71,6 +74,5 @@ public class Task1 {
 
         LOGGER.info(String.valueOf(task1.stringProcessing()));
     }
-
 }
 

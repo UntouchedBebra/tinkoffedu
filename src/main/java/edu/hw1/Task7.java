@@ -4,18 +4,20 @@ import java.util.logging.Logger;
 
 public class Task7 {
     private String translateIntoBits(int number) {
+        int num = number;
         StringBuilder bitString = new StringBuilder();
-        while (number > 0) {
-            bitString.append(number % 2);
-            number /= 2;
+        while (num > 0) {
+            bitString.append(num % 2);
+            num /= 2;
         }
         return bitString.reverse().toString();
     }
 
     public int rotateRight(int number, int shift) {
-        number = Math.abs(number);
+        int num = number;
+        num = Math.abs(num);
         if (shift > 0) {
-            char[] initialBitsArray = translateIntoBits(number).toCharArray();
+            char[] initialBitsArray = translateIntoBits(num).toCharArray();
 
             char[] shiftedArray = new char[initialBitsArray.length];
             final int truncation = initialBitsArray.length;
@@ -26,16 +28,17 @@ public class Task7 {
             }
             return translateIntoNumber(shiftedArray);
         } else if (shift < 0) {
-            return rotateLeft(number, Math.abs(shift));
+            return rotateLeft(num, Math.abs(shift));
         } else {
-            return number;
+            return num;
         }
     }
 
     public int rotateLeft(int number, int shift) {
-        number = Math.abs(number);
+        int num = number;
+        num = Math.abs(num);
         if (shift > 0) {
-            char[] initialBitsArray = translateIntoBits(number).toCharArray();
+            char[] initialBitsArray = translateIntoBits(num).toCharArray();
 
             char[] shiftedArray = new char[initialBitsArray.length];
             final int truncation = initialBitsArray.length;
@@ -47,9 +50,9 @@ public class Task7 {
 
             return translateIntoNumber(shiftedArray);
         } else if (shift < 0) {
-            return rotateRight(number, Math.abs(shift));
+            return rotateRight(num, Math.abs(shift));
         } else {
-            return number;
+            return num;
         }
     }
 

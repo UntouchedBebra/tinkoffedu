@@ -4,6 +4,7 @@ public class Task8 {
     private final int[][] chessBoard;
     private final static int CHESSBOARD_LOWER_BOUNDARY_INDEX = 0;
     private final static int CHESSBOARD_DIMENSION_INDEX = 7;
+    private final static int CHESSBOARD_DIMENSION = 8;
     private final static int KNIGHT = 1;
 
     private final static int[][] KNIGHT_MOVES = {
@@ -22,7 +23,7 @@ public class Task8 {
     }
 
     private boolean deskCapacityIsEight() {
-        return chessBoard.length == 8;
+        return chessBoard.length == CHESSBOARD_DIMENSION;
     }
 
     private boolean subArraysNotNull() {
@@ -36,7 +37,7 @@ public class Task8 {
 
     private boolean subArraysCapacitiesAreEight() {
         for (int[] line : chessBoard) {
-            if (line.length != 8) {
+            if (line.length != CHESSBOARD_DIMENSION) {
                 return false;
             }
         }

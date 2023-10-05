@@ -1,5 +1,7 @@
 package edu.hw1;
 
+import java.util.logging.Logger;
+
 public class Task1 {
     private final static int CONVERT_MINUTES_TO_SECONDS = 60;
     private final static int HIGHEST_BOUNDARY_OF_SECONDS = 59;
@@ -13,9 +15,14 @@ public class Task1 {
 
     public int stringProcessing() {
         // Проверка на пустоту строки, наличия символа ':'
-        if (!videoLength.isEmpty()
+        if ( videoLength != null
+            && !videoLength.isEmpty()
             && videoLength.contains(":")
-            && stringCheckup()) {
+            && partsLengthsAreBiggerThanTwo()
+            && partsAreNumbers()
+            && numbersArePositiveOrZero()
+            && boundariesAreFollowed()
+            && rightPartIsLessSixty()) {
             return parts[0] * CONVERT_MINUTES_TO_SECONDS + parts[1];
         } else {
             return -1;
@@ -23,14 +30,12 @@ public class Task1 {
 
     }
 
-    private boolean stringCheckup() {
-        return checkPartsAreNumbers()
-               && checkNumbersArePositiveOrZero()
-               && boundariesAreFollowed()
-               && rightPartIsLessSixty();
+    private boolean partsLengthsAreBiggerThanTwo() {
+        String[] stringParts = videoLength.split(":");
+        return stringParts[0].length() >=2 && stringParts[1].length() >= 2;
     }
 
-    private boolean checkPartsAreNumbers() throws NumberFormatException, ArrayIndexOutOfBoundsException {
+    private boolean partsAreNumbers() throws NumberFormatException, ArrayIndexOutOfBoundsException {
         try {
             String[] stringParts = videoLength.split(":");
             parts = new int[2];
@@ -44,11 +49,10 @@ public class Task1 {
     }
 
     private boolean boundariesAreFollowed() {
-        return (parts[0] <= Long.MAX_VALUE)
-               && (parts[1] <= Long.MAX_VALUE);
+        return (parts[0] <= Long.MAX_VALUE) && (parts[1] <= Long.MAX_VALUE);
     }
 
-    private boolean checkNumbersArePositiveOrZero() {
+    private boolean numbersArePositiveOrZero() {
         return (parts[0] >= 0) && (parts[1] >= 0);
     }
 

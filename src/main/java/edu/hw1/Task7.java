@@ -1,7 +1,5 @@
 package edu.hw1;
 
-import java.util.logging.Logger;
-
 public class Task7 {
     private String translateIntoBits(int number) {
         int num = number;

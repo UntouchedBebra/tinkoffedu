@@ -42,7 +42,9 @@ public class Task7 {
             final int truncation = initialBitsArray.length;
 
             for (int i = 0; i < initialBitsArray.length; i++) {
-                int newIndex = (i - shift) >= 0 ? (i - shift) : initialBitsArray.length + ((i - shift) % truncation);
+                int newIndex = (i - shift) % truncation >= 0 ? (i - shift) % truncation
+                    :
+                    initialBitsArray.length + ((i - shift) % truncation);
                 shiftedArray[newIndex] = initialBitsArray[i];
             }
 

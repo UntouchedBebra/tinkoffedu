@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class Task6 {
     private final static String KAPREKAR_CONST = "6174";
-    private final static int LOWEST_BOUNDARY = 1000;
+    private final static int LOW_BOUNDARY = 1000;
+    private final static int TOP_BOUNDARY = 9999;
     private final static int MAX_DIGITS_COUNT = 4;
     private final int number;
     private final String stringNumber;
@@ -17,12 +18,16 @@ public class Task6 {
     }
 
     public int numberProcessing() {
-        if (number > LOWEST_BOUNDARY
-            && number <= Integer.MAX_VALUE
-            && !allDigitsAreSimilar()) {
-            return kaprekar(stringNumber);
+        if (number != Integer.parseInt(KAPREKAR_CONST)) {
+            if (number > LOW_BOUNDARY
+                && number <= TOP_BOUNDARY
+                && !allDigitsAreSimilar()) {
+                return kaprekar(stringNumber);
+            } else {
+                return -1;
+            }
         } else {
-            return -1;
+            return 0;
         }
     }
 

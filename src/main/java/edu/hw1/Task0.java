@@ -3,13 +3,13 @@ package edu.hw1;
 import java.util.logging.Logger;
 
 public class Task0 {
-    private static final Logger LOGGER = Logger.getLogger(Task0.class.getName());
+    private final Logger logger;
 
-    private Task0() {
-        throw new AssertionError("Нет необходимости создавать объекты данного класса.");
+    public Task0(Logger logger) {
+        this.logger = Logger.getLogger(Task0.class.getName());
     }
 
-    public static void printHelloWorld() {
-        LOGGER.info("Привет, мир!");
+    public void printHelloWorld() {
+        logger.info("Привет, мир!");
     }
 }

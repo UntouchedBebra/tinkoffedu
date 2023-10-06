@@ -10,17 +10,20 @@ public class Task5 {
     }
 
     public boolean numberCheckup() {
-        if (absNumber <= Long.MAX_VALUE
-            && String.valueOf(absNumber).length() % 2 == 0) {
-            return isPalindrome();
+        if (!isPalindrome()) {
+            if (absNumber <= Long.MAX_VALUE && String.valueOf(absNumber).length() % 2 == 0) {
+                return isPalindromeModified();
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            return true;
         }
     }
 
-    private boolean isPalindrome() {
+    private boolean isPalindromeModified() {
         while (String.valueOf(absNumber).length() >= 2) {
-            if (!String.valueOf(absNumber).equals(new StringBuilder(String.valueOf(absNumber)).reverse().toString())) {
+            if (!isPalindrome()) {
                 makeOffspring();
             } else {
                 return true;
@@ -28,6 +31,11 @@ public class Task5 {
         }
         return false;
     }
+
+    private boolean isPalindrome() {
+        return String.valueOf(absNumber).equals(new StringBuilder(String.valueOf(absNumber)).reverse().toString());
+    }
+
 
     private void makeOffspring() {
         char[] digits = String.valueOf(absNumber).toCharArray();

@@ -15,7 +15,7 @@ public class Task1 {
         // Проверка на пустоту строки, наличия символа ':'
         if (videoLength != null
             && !videoLength.isEmpty()
-            && videoLength.contains(":")
+            && containsColonAndTwoPartsExist()
             && partsLengthsAreBiggerThanTwo()
             && partsAreNumbers()
             && numbersArePositiveOrZero()
@@ -24,6 +24,20 @@ public class Task1 {
             return parts[0] * CONVERT_MINUTES_TO_SECONDS + parts[1];
         } else {
             return -1;
+        }
+
+    }
+
+    private boolean containsColonAndTwoPartsExist() {
+        try {
+            if (videoLength.contains(":")) {
+                String[] stringParts = videoLength.split(":");
+                return stringParts.length == 2;
+            } else {
+                return false;
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
         }
 
     }

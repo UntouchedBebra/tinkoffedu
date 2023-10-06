@@ -8,8 +8,8 @@ public class Task4 {
     }
 
     public String fixString() {
-        if (!initialString.isEmpty()
-            && initialString != null) {
+        if (initialString != null
+            && !initialString.isEmpty()) {
             char[] symbolsArray = initialString.toCharArray();
             char bucket;
             for (int i = 0; i < initialString.length() - 1; i += 2) {

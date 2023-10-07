@@ -17,9 +17,8 @@ public class Task1 {
             && !videoLength.isEmpty()
             && containsColonAndTwoPartsExist()
             && partsLengthsAreBiggerThanTwo()
-            && partsAreNumbers()
+            && boundariesOfIntegerAreFollowedAndPartsAreNumbers()
             && numbersArePositiveOrZero()
-            && boundariesAreFollowed()
             && rightPartIsLessSixty()) {
             return parts[0] * CONVERT_MINUTES_TO_SECONDS + parts[1];
         } else {
@@ -29,17 +28,7 @@ public class Task1 {
     }
 
     private boolean containsColonAndTwoPartsExist() {
-        try {
-            if (videoLength.contains(":")) {
-                String[] stringParts = videoLength.split(":");
-                return stringParts.length == 2;
-            } else {
-                return false;
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
-        }
-
+        return videoLength.contains(":") && videoLength.split(":").length == 2;
     }
 
     private boolean partsLengthsAreBiggerThanTwo() {
@@ -47,7 +36,7 @@ public class Task1 {
         return stringParts[0].length() >= 2 && stringParts[1].length() >= 2;
     }
 
-    private boolean partsAreNumbers() throws NumberFormatException, ArrayIndexOutOfBoundsException {
+    private boolean boundariesOfIntegerAreFollowedAndPartsAreNumbers() {
         try {
             String[] stringParts = videoLength.split(":");
             parts = new int[2];
@@ -55,14 +44,9 @@ public class Task1 {
                 parts[i] = Integer.parseInt(stringParts[i]);
             }
             return true;
-        } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+        } catch (NumberFormatException e) {
             return false;
         }
-    }
-
-    private boolean boundariesAreFollowed() {
-        return (parts[0] <= Long.MAX_VALUE)
-               && (parts[1] <= Long.MAX_VALUE);
     }
 
     private boolean numbersArePositiveOrZero() {

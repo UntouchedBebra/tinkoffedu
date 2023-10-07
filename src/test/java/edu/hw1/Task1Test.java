@@ -53,6 +53,18 @@ public class Task1Test {
         assertEquals(6001, result);
     }
 
+    @DisplayName("Некорректное время с минутами превышающими Integer")
+    @Test
+    void exceedingOfInteger() {
+        // given
+        String videoLength = "3000000000:01";
+        task1 = new Task1(videoLength);
+        // when
+        int result = task1.stringProcessing();
+        // then
+        assertEquals(-1, result);
+    }
+
     @DisplayName("Некорректное время с секундами превышающими 60")
     @Test
     void exceedingOfSeconds() {

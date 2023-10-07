@@ -5,13 +5,13 @@ public class Task7 {
         int num = number;
         StringBuilder bitString = new StringBuilder();
         while (num > 0) {
-            bitString.append(num % 2);
+            bitString.insert(0, num % 2);
             num /= 2;
         }
-        return bitString.reverse().toString();
+        return bitString.toString();
     }
 
-    public int rotateRight(int number, int shift) {
+    public int rotateCycleRight(int number, int shift) {
         int num = number;
         num = Math.abs(num);
         if (shift > 0) {
@@ -26,13 +26,13 @@ public class Task7 {
             }
             return translateIntoNumber(shiftedArray);
         } else if (shift < 0) {
-            return rotateLeft(num, Math.abs(shift));
+            return rotateCycleLeft(num, Math.abs(shift));
         } else {
             return num;
         }
     }
 
-    public int rotateLeft(int number, int shift) {
+    public int rotateCycleLeft(int number, int shift) {
         int num = number;
         num = Math.abs(num);
         if (shift > 0) {
@@ -47,10 +47,9 @@ public class Task7 {
                     initialBitsArray.length + ((i - shift) % truncation);
                 shiftedArray[newIndex] = initialBitsArray[i];
             }
-
             return translateIntoNumber(shiftedArray);
         } else if (shift < 0) {
-            return rotateRight(num, Math.abs(shift));
+            return rotateCycleRight(num, Math.abs(shift));
         } else {
             return num;
         }
@@ -58,11 +57,10 @@ public class Task7 {
 
     private int translateIntoNumber(char[] bitsArray) {
         int resultNumber = 0;
-        int pow = 0;
-        final int powConstant = 2;
         for (int i = bitsArray.length - 1; i >= 0; i--) {
-            resultNumber += (bitsArray[i] == '1') ? (int) Math.pow(powConstant, pow) : 0;
-            pow++;
+            if (bitsArray[i] == ('1')) {
+                resultNumber += 1 << (bitsArray.length - 1 - i);
+            }
         }
         return resultNumber;
     }

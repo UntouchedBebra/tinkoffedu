@@ -20,7 +20,7 @@ public class Task7Test {
         int number = 8;
         int shift = 1;
         // when
-        int result = task7.rotateRight(number, shift);
+        int result = task7.rotateCycleRight(number, shift);
         // then
         assertEquals(4, result);
     }
@@ -31,7 +31,7 @@ public class Task7Test {
         int number = 8;
         int shift = -1;
         // when
-        int result = task7.rotateRight(number, shift);
+        int result = task7.rotateCycleRight(number, shift);
         // then
         assertEquals(1, result);
     }
@@ -42,7 +42,7 @@ public class Task7Test {
         int number = 8;
         int shift = 1;
         // when
-        int result = task7.rotateLeft(number, shift);
+        int result = task7.rotateCycleLeft(number, shift);
         // then
         assertEquals(1, result);
     }
@@ -53,7 +53,7 @@ public class Task7Test {
         int number = 8;
         int shift = -1;
         // when
-        int result = task7.rotateLeft(number, shift);
+        int result = task7.rotateCycleLeft(number, shift);
         // then
         assertEquals(4, result);
     }
@@ -65,7 +65,7 @@ public class Task7Test {
         int number = 8;
         int shift = 0;
         // when
-        int result = task7.rotateRight(number, shift);
+        int result = task7.rotateCycleRight(number, shift);
         // then
         assertEquals(8, result);
     }
@@ -77,7 +77,7 @@ public class Task7Test {
         int number = 8;
         int shift = 0;
         // when
-        int result = task7.rotateLeft(number, shift);
+        int result = task7.rotateCycleLeft(number, shift);
         // then
         assertEquals(8, result);
     }
@@ -89,7 +89,7 @@ public class Task7Test {
         int number = 8;
         int shift = 5;
         // when
-        int result = task7.rotateRight(number, shift);
+        int result = task7.rotateCycleRight(number, shift);
         // then
         assertEquals(4, result);
     }
@@ -101,7 +101,7 @@ public class Task7Test {
         int number = 8;
         int shift = 5;
         // when
-        int result = task7.rotateLeft(number, shift);
+        int result = task7.rotateCycleLeft(number, shift);
         // then
         assertEquals(1, result);
     }
@@ -113,7 +113,7 @@ public class Task7Test {
         int number = 0;
         int shift = 10;
         // when
-        int result = task7.rotateLeft(number, shift);
+        int result = task7.rotateCycleLeft(number, shift);
         // then
         assertEquals(0, result);
     }
@@ -124,7 +124,7 @@ public class Task7Test {
         int number = 1;
         int shift = 10;
         // when
-        int result = task7.rotateLeft(number, shift);
+        int result = task7.rotateCycleLeft(number, shift);
         // then
         assertEquals(1, result);
     }

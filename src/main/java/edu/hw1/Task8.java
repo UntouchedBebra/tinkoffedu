@@ -47,7 +47,7 @@ public class Task8 {
     private boolean usedOnlyZerosAndOnes() {
         for (int[] line : chessBoard) {
             for (int elem : line) {
-                if (Math.abs(elem) > 1) {
+                if (elem != 1 && elem != 0) {
                     return false;
                 }
             }
@@ -61,8 +61,8 @@ public class Task8 {
             && subArraysNotNull()
             && subArraysCapacitiesAreEight()
             && usedOnlyZerosAndOnes()) {
-            for (int i = 0; i < CHESSBOARD_DIMENSION_INDEX; i++) {
-                for (int j = 0; j < CHESSBOARD_DIMENSION_INDEX; j++) {
+            for (int i = 0; i <= CHESSBOARD_DIMENSION_INDEX; i++) {
+                for (int j = 0; j <= CHESSBOARD_DIMENSION_INDEX; j++) {
                     if (chessBoard[i][j] == KNIGHT) {
                         if (knightsAround(i, j)) {
                             return false;

@@ -1,12 +1,15 @@
 package edu.hw1;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Task6 {
     private final static String KAPREKAR_CONST = "6174";
     private final static int LOW_BOUNDARY = 1000;
     private final static int TOP_BOUNDARY = 9999;
     private final static int MAX_DIGITS_COUNT = 4;
+    private final static int ONLY_ONE_DIGIT_NUMBER = 1;
     private final int number;
     private final String stringNumber;
     private int iterationsCount;
@@ -18,28 +21,25 @@ public class Task6 {
     }
 
     public int numberProcessing() {
-        if (number != Integer.parseInt(KAPREKAR_CONST)) {
+        if (number == Integer.parseInt(KAPREKAR_CONST)) {
+            return 0;
+        } else {
             if (number > LOW_BOUNDARY
                 && number <= TOP_BOUNDARY
-                && !allDigitsAreSimilar()) {
+                && allDigitsNotSimilar()) {
                 return kaprekar(stringNumber);
             } else {
                 return -1;
             }
-        } else {
-            return 0;
         }
     }
 
-    private boolean allDigitsAreSimilar() {
-        char[] digits = stringNumber.toCharArray();
-        char symbol = digits[0];
-        for (int i = 1; i < digits.length; i++) {
-            if (symbol != digits[i]) {
-                return false;
-            }
+    private boolean allDigitsNotSimilar() {
+        Set<Character> digits = new HashSet<>();
+        for (char digit : stringNumber.toCharArray()) {
+            digits.add(digit);
         }
-        return true;
+        return digits.size() != ONLY_ONE_DIGIT_NUMBER;
     }
 
     private int kaprekar(String number) {

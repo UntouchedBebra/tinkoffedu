@@ -31,7 +31,6 @@ public class HangmanApp {
             if (guessIsRight) {
                 correctGuessMessage(hangmanWord.getCurrentWordStatement());
             } else {
-
                 incorrectGuessMessage(++usedAttemptsCount);
             }
         }

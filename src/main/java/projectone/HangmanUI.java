@@ -1,8 +1,10 @@
 package projectone;
 
+
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.logging.Logger;
+import org.jetbrains.annotations.NotNull;
 
 public final class HangmanUI {
     private final static Logger LOGGER = Logger.getLogger(HangmanUI.class.getName());
@@ -23,7 +25,8 @@ public final class HangmanUI {
         LOGGER.info(inputMessage);
 
         Scanner scanner = new Scanner(System.in);
-        String inputString = scanner.nextLine().toLowerCase();
+        String inputString = "";
+        inputString = dataInput(scanner, inputString);
 
         while (!inputStringIsCorrect(inputString)) {
             LOGGER.info(errorMessage);
@@ -31,6 +34,17 @@ public final class HangmanUI {
         }
 
         return inputString;
+    }
+
+    @NotNull private static String dataInput(Scanner scanner, String inputString) {
+        String inputStringCopy = inputString;
+        if (scanner.hasNextLine()) {
+            inputStringCopy = scanner.nextLine().toLowerCase();
+        } else {
+            LOGGER.info("You've given up early!");
+            System.exit(0);
+        }
+        return inputStringCopy;
     }
 
     public static HashSet<String> extractWordsFromInputString(String inputString) {

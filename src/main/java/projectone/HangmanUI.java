@@ -64,15 +64,15 @@ public final class HangmanUI {
         return ' ';
     }
 
-//    public static void typedLetterMessage(boolean letterIsGuessed, int currentAttemptsCount) {
-//        if (letterIsGuessed) {
-//            LOGGER.info("The letter's guessed!");
-//        } else {
-//            LOGGER.info(String.format("Missed, You've got %d attempts left",
-//                HangmanApp.MAX_ATTEMPTS_COUNT - currentAttemptsCount
-//            ));
-//        }
-//    }
+    public static void correctGuessMessage(String currentWordStatement) {
+        LOGGER.info(String.format("Hit!\nThe word: %s", currentWordStatement));
+    }
+
+    public static void incorrectGuessMessage(int usedAttemptsCount) {
+        LOGGER.info(String.format("\"Missed. You've got %d attempts left",
+            HangmanApp.MAX_ATTEMPTS_COUNT - usedAttemptsCount
+        ));
+    }
 
     public static void winningMessage() {
         LOGGER.info("You've won :) Congratulations!");

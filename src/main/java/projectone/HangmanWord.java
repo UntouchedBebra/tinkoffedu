@@ -1,4 +1,4 @@
-package project1;
+package projectone;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +20,7 @@ public class HangmanWord {
     }
 
     public String getCurrentWordStatement() {
-        if (wordIsComposed()) {
+        if (!wordNotComposed()) {
             return wordForGuessing;
         } else {
             char[] wordSymbols = wordForGuessing.toCharArray();
@@ -44,8 +44,8 @@ public class HangmanWord {
         }
     }
 
-    public boolean wordIsComposed() {
-        return symbolsForGuessing.size() == guessedSymbols.size();
+    public boolean wordNotComposed() {
+        return symbolsForGuessing.size() != guessedSymbols.size();
     }
 }
 

@@ -82,9 +82,9 @@ public final class HangmanUI {
         LOGGER.info(String.format("Hit!\nThe word: %s", currentWordStatement));
     }
 
-    public static void incorrectGuessMessage(int usedAttemptsCount) {
+    public static void incorrectGuessMessage(int attemptsLeft) {
         LOGGER.info(String.format("\"Missed. You've got %d attempts left",
-            HangmanApp.MAX_ATTEMPTS_COUNT - usedAttemptsCount
+            attemptsLeft
         ));
     }
 

@@ -9,13 +9,12 @@ import static projectone.HangmanUI.incorrectGuessMessage;
 import static projectone.HangmanUI.winningMessage;
 
 public class HangmanApp {
-    private final Dictionary dictionary;
     private final HangmanWord hangmanWord;
     public final static int MAX_ATTEMPTS_COUNT = 10;
     private int usedAttemptsCount;
 
     public HangmanApp(HashSet<String> words) {
-        dictionary = new Dictionary(words);
+        Dictionary dictionary = new Dictionary(words);
         hangmanWord = new HangmanWord(dictionary.getRandomWord());
         usedAttemptsCount = 0;
     }
@@ -31,7 +30,7 @@ public class HangmanApp {
             if (guessIsRight) {
                 correctGuessMessage(hangmanWord.getCurrentWordStatement());
             } else {
-                incorrectGuessMessage(++usedAttemptsCount);
+                incorrectGuessMessage(MAX_ATTEMPTS_COUNT - (++usedAttemptsCount));
             }
         }
 

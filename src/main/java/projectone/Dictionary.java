@@ -13,10 +13,14 @@ public class Dictionary {
     }
 
     public String getRandomWord() {
+        if (wordsToGuess.size() >= 1) {
             List<String> wordsToGuessList = new ArrayList<>(wordsToGuess);
             Random random = new Random();
             int randomIndex = random.nextInt(wordsToGuessList.size());
             return wordsToGuessList.get(randomIndex);
+        } else {
+            return null;
+        }
     }
 
 }

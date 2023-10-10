@@ -96,7 +96,7 @@ public final class HangmanUI {
         LOGGER.info("You've lost :( Don't upset!");
     }
 
-    private static boolean inputStringIsCorrect(String inputString) {
+    public static boolean inputStringIsCorrect(String inputString) {
         return !isNull(inputString) && !inputString.isEmpty() && consistLetters(inputString);
     }
 

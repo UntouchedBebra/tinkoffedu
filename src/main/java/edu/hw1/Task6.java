@@ -5,11 +5,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Task6 {
-    private final static String KAPREKAR_CONST = "6174";
-    private final static int LOW_BOUNDARY = 1000;
-    private final static int TOP_BOUNDARY = 9999;
-    private final static int MAX_DIGITS_COUNT = 4;
-    private final static int ONLY_ONE_DIGIT_NUMBER = 1;
+    private static final String KAPREKAR_CONSTANT = "6174";
+    private static final int LOW_BOUNDARY = 1000;
+    private static final int TOP_BOUNDARY = 9999;
+    private static final int MAX_DIGITS_COUNT = 4;
+    private static final int ONLY_ONE_DIGIT_NUMBER = 1;
     private final int number;
     private final String stringNumber;
     private int iterationsCount;
@@ -21,7 +21,7 @@ public class Task6 {
     }
 
     public int numberProcessing() {
-        if (number == Integer.parseInt(KAPREKAR_CONST)) {
+        if (number == Integer.parseInt(KAPREKAR_CONSTANT)) {
             return 0;
         } else {
             if (number > LOW_BOUNDARY
@@ -44,7 +44,7 @@ public class Task6 {
 
     private int kaprekar(String number) {
         String difference = getDifference(number);
-        if (!difference.equals(KAPREKAR_CONST)) {
+        if (!difference.equals(KAPREKAR_CONSTANT)) {
             iterationsCount++;
             kaprekar(difference);
         }

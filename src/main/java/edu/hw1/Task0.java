@@ -5,8 +5,8 @@ import java.util.logging.Logger;
 public class Task0 {
     private final Logger logger;
 
-    public Task0(Logger logger) {
-        this.logger = Logger.getLogger(Task0.class.getName());
+    public Task0() {
+        logger = Logger.getLogger(Task0.class.getName());
     }
 
     public void printHelloWorld() {

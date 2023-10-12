@@ -1,8 +1,8 @@
 package edu.hw1;
 
 public class Task1 {
-    private final static int CONVERT_MINUTES_TO_SECONDS = 60;
-    private final static int HIGHEST_BOUNDARY_OF_SECONDS = 59;
+    private static final int SECONDS_IN_MINUTE = 60;
+    private static final int HIGHEST_BOUNDARY_OF_SECONDS = 59;
     private final String videoLength;
     private int[] parts;
 
@@ -11,20 +11,27 @@ public class Task1 {
         parts = null;
     }
 
-    public int stringProcessing() {
+    public int stringAndNumbersProcessing() {
         // Проверка на пустоту строки, наличия символа ':'
-        if (videoLength != null
-            && !videoLength.isEmpty()
-            && containsColonAndTwoPartsExist()
-            && partsLengthsAreBiggerThanTwo()
-            && boundariesOfIntegerAreFollowedAndPartsAreNumbers()
-            && numbersArePositiveOrZero()
-            && rightPartIsLessSixty()) {
-            return parts[0] * CONVERT_MINUTES_TO_SECONDS + parts[1];
+        if (stringCheckupsAreFollowed() && numberCheckupsAreFollowed()) {
+            return parts[0] * SECONDS_IN_MINUTE + parts[1];
         } else {
             return -1;
         }
 
+    }
+
+    private boolean stringCheckupsAreFollowed() {
+        return videoLength != null
+               && !videoLength.isEmpty()
+               && containsColonAndTwoPartsExist()
+               && partsLengthsAreBiggerThanTwo();
+    }
+
+    private boolean numberCheckupsAreFollowed() {
+        return boundariesOfIntegerAreFollowedAndPartsAreNumbers()
+               && numbersArePositiveOrZero()
+               && rightPartIsLessSixty();
     }
 
     private boolean containsColonAndTwoPartsExist() {

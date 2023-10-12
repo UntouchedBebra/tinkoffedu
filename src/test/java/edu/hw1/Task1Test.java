@@ -1,6 +1,8 @@
 package edu.hw1;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
+
 public class Task1Test {
     private Task1 task1;
 
@@ -11,7 +13,7 @@ public class Task1Test {
         String videoLength = "10:30";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(630, result);
     }
@@ -23,7 +25,7 @@ public class Task1Test {
         String videoLength = "00000001:00000030";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(90, result);
     }
@@ -35,7 +37,7 @@ public class Task1Test {
         String videoLength = "1:00000030";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(-1, result);
     }
@@ -48,7 +50,7 @@ public class Task1Test {
         String videoLength = "100:01";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(6001, result);
     }
@@ -60,7 +62,7 @@ public class Task1Test {
         String videoLength = "3000000000:01";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(-1, result);
     }
@@ -72,7 +74,7 @@ public class Task1Test {
         String videoLength = "100:100";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(-1, result);
     }
@@ -84,7 +86,7 @@ public class Task1Test {
         String videoLength = null;
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(-1, result);
     }
@@ -96,7 +98,7 @@ public class Task1Test {
         String videoLength = "";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(-1, result);
     }
@@ -108,7 +110,7 @@ public class Task1Test {
         String videoLength = " : ";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(-1, result);
     }
@@ -120,7 +122,7 @@ public class Task1Test {
         String videoLength = "dwqwqwqddwqdwqd";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(-1, result);
     }
@@ -132,7 +134,7 @@ public class Task1Test {
         String videoLength = "dwqwqwq:ddwqdwqd";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
         assertEquals(-1, result);
     }
@@ -144,10 +146,12 @@ public class Task1Test {
         String videoLength = "00:00";
         task1 = new Task1(videoLength);
         // when
-        int result = task1.stringProcessing();
+        int result = task1.stringAndNumbersProcessing();
         // then
-        assertEquals(0, result);
+        assertThat(result).isZero();
     }
+
+
 
 
 

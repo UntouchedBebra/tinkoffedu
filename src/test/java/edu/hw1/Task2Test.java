@@ -1,4 +1,5 @@
 package edu.hw1;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 public class Task2Test {
@@ -37,7 +38,7 @@ public class Task2Test {
         // when
         int result = task2.numbersQuantity();
         // then
-        assertEquals(1, result);
+        assertThat(result).isOne();
     }
 
     @DisplayName("Число из одной цифры")
@@ -49,7 +50,7 @@ public class Task2Test {
         // when
         int result = task2.numbersQuantity();
         // then
-        assertEquals(1, result);
+        assertThat(result).isOne();
     }
 
 

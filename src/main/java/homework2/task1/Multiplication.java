@@ -1,0 +1,8 @@
+package homework2.task1;
+
+public record Multiplication(Expression firstExpression, Expression secondExpression) implements Expression {
+    @Override public double evaluate() {
+        return firstExpression.evaluate() * secondExpression.evaluate();
+    }
+
+}

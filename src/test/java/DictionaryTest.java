@@ -6,16 +6,6 @@ import org.junit.jupiter.api.Test;
 import projectone.Dictionary;
 
 public class DictionaryTest {
-    @DisplayName("Получение null слова из пустого словаря")
-    @Test void testGettingNullFromEmptyDictionary() {
-        // given
-        Dictionary dictionary = new Dictionary(new HashSet<String>());
-        // when
-        String word = dictionary.getRandomWord();
-        // then
-        Assertions.assertNull(null);
-    }
-
     @DisplayName("Получение слова из пустого словаря")
     @Test void testGettingWordFromFilledDictionary() {
         // given

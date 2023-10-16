@@ -1,4 +1,4 @@
-package homework2.task1;
+package edu.hw2.task1;
 
 public record Exponent(Expression base, double power) implements Expression {
     @Override

@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 
 public final class HangmanUI {
-    private final static Logger LOGGER = Logger.getLogger(HangmanUI.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(HangmanUI.class.getName());
 
     private HangmanUI() {
     }

@@ -39,9 +39,9 @@ public class HangmanWord {
         if (symbolsForGuessing.contains(guessedSymbol)) {
             guessedSymbols.add(guessedSymbol);
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public boolean wordNotComposed() {

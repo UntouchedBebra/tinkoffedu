@@ -7,33 +7,26 @@ import projectone.HangmanWord;
 public class HangmanWordTest {
     HangmanWord hangmanWord;
 
-    @BeforeEach
-    void testHangmanWordInitialization() {
+    @BeforeEach void testHangmanWordInitialization() {
         // given
         hangmanWord = new HangmanWord("son");
     }
 
-    @DisplayName("Угадывание буквы")
-    @Test
-    void testCorrectWordGuessAttempt() {
+    @DisplayName("Угадывание буквы") @Test void testCorrectWordGuessAttempt() {
         // when
         boolean letterIsGuessed = hangmanWord.guessLetter('s');
         // then
         Assertions.assertTrue(letterIsGuessed);
     }
 
-    @DisplayName("Неугадывание буквы")
-    @Test
-    void testIncorrectWordGuessAttempt() {
+    @DisplayName("Неугадывание буквы") @Test void testIncorrectWordGuessAttempt() {
         // when
         boolean letterIsGuessed = hangmanWord.guessLetter('q');
         // then
         Assertions.assertFalse(letterIsGuessed);
     }
 
-    @DisplayName("Проверка на завершение составления слова")
-    @Test
-    void testWordIsComposed() {
+    @DisplayName("Проверка на завершение составления слова") @Test void testWordIsComposed() {
         // when
         hangmanWord.guessLetter('s');
         hangmanWord.guessLetter('o');
@@ -42,18 +35,14 @@ public class HangmanWordTest {
         Assertions.assertFalse(hangmanWord.wordNotComposed());
     }
 
-    @DisplayName("Проверка на незавершенность составления слова")
-    @Test
-    void testWordNotComposed() {
+    @DisplayName("Проверка на незавершенность составления слова") @Test void testWordNotComposed() {
         // when
         hangmanWord.guessLetter('s');
         // then
         Assertions.assertTrue(hangmanWord.wordNotComposed());
     }
 
-    @DisplayName("Получение текущего состояния угадываемого слова")
-    @Test
-    void testGetPartiallyGuessedWordStatement() {
+    @DisplayName("Получение текущего состояния угадываемого слова") @Test void testGetPartiallyGuessedWordStatement() {
         // when
         hangmanWord.guessLetter('s');
         String currentWordStatement = hangmanWord.getCurrentWordStatement();
@@ -61,9 +50,7 @@ public class HangmanWordTest {
         Assertions.assertEquals("s**", currentWordStatement);
     }
 
-    @DisplayName("Получение текущего состояния угадываемого слова")
-    @Test
-    void testGetFullyGuessedWordStatement() {
+    @DisplayName("Получение текущего состояния угадываемого слова") @Test void testGetFullyGuessedWordStatement() {
         // when
         hangmanWord.guessLetter('s');
         hangmanWord.guessLetter('o');
@@ -72,8 +59,4 @@ public class HangmanWordTest {
         // then
         Assertions.assertEquals("son", currentWordStatement);
     }
-
-
-
-
 }

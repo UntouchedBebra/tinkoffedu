@@ -10,7 +10,7 @@ import static projectone.HangmanUI.winningMessage;
 
 public class HangmanApp {
     private final HangmanWord hangmanWord;
-    public final static int MAX_ATTEMPTS_COUNT = 10;
+    public static final int MAX_ATTEMPTS_COUNT = 10;
     private int usedAttemptsCount;
 
     public HangmanApp(HashSet<String> words) {
@@ -34,10 +34,10 @@ public class HangmanApp {
             }
         }
 
-        if (!hangmanWord.wordNotComposed()) {
-            winningMessage();
-        } else {
+        if (hangmanWord.wordNotComposed()) {
             defeatMessage();
+        } else {
+            winningMessage();
         }
     }
 

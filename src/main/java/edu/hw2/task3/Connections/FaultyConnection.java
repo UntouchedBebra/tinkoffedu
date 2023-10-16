@@ -5,14 +5,14 @@ import java.util.logging.Logger;
 
 public class FaultyConnection implements Connection {
     private Logger logger;
-    private final double chanceToFailExecutionInPercents;
+    private final double chanceToFailExecution;
 
     private Random random;
 
     @SuppressWarnings("MagicNumber") public FaultyConnection() {
         logger = Logger.getLogger(FaultyConnection.class.getName());
         random = new Random();
-        chanceToFailExecutionInPercents = 0.3;
+        chanceToFailExecution = 0.3;
     }
 
     public void setRandom(Random random) {
@@ -20,7 +20,7 @@ public class FaultyConnection implements Connection {
     }
 
     @Override public void execute(String command) {
-        if (random.nextDouble() < chanceToFailExecutionInPercents) {
+        if (random.nextDouble() < chanceToFailExecution) {
             throw new ConnectionException("При выполнении операции было разорвано соединение");
         } else {
             logger.info("Выполнение операциии в рамках ПРОБЛЕМНОГО соединения ");

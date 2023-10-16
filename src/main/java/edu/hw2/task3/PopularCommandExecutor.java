@@ -21,7 +21,7 @@ public final class PopularCommandExecutor {
         tryExecute("apt update && apt upgrade -y");
     }
 
-    void tryExecute(String command) {
+    private void tryExecute(String command) {
         Connection connection = manager.getConnection();
         ConnectionException cause = null;
         for (int i = 0; i < maxAttempts; i++) {

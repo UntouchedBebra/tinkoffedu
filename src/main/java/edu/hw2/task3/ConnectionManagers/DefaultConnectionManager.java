@@ -6,11 +6,11 @@ import edu.hw2.task3.Connections.StableConnection;
 import java.util.Random;
 
 public class DefaultConnectionManager implements ConnectionManager {
-    private final double chanceOfReturningFaultyConnection;
+    private final double faultyConnectionReturningChance;
     private Random random;
 
     @SuppressWarnings("MagicNumber") public DefaultConnectionManager() {
-        this.chanceOfReturningFaultyConnection = 0.3;
+        this.faultyConnectionReturningChance = 0.3;
         this.random = new Random();
     }
 
@@ -19,7 +19,7 @@ public class DefaultConnectionManager implements ConnectionManager {
     }
 
     @Override public Connection getConnection() {
-        return (random.nextDouble() > chanceOfReturningFaultyConnection) ? new StableConnection()
+        return (random.nextDouble() > faultyConnectionReturningChance) ? new StableConnection()
             :
             new FaultyConnection();
     }

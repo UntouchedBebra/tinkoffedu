@@ -3,10 +3,10 @@ package hw2.task3;
 import edu.hw2.task3.ConnectionManagers.ConnectionManager;
 import edu.hw2.task3.ConnectionManagers.FaultyConnectionManager;
 import edu.hw2.task3.Connections.Connection;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import edu.hw2.task3.Connections.FaultyConnection;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FaultyConnectionManagerTest {
     @Test

@@ -9,7 +9,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ExponentTest {
-    @Test @DisplayName("Возврат экспоненциирования 2 в -4 степень") void testConstant() {
+    @Test
+    @DisplayName
+        ("Возврат экспоненциирования 2 в -4 степень") void testConstant() {
         // given
         Expression exponentiationOfTwoToThePowerOfMinusFourAsExpression =
             new Exponent(new Constant(2), new Negate(new Constant(4)).evaluate());

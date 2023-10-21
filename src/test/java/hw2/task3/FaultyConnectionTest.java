@@ -15,21 +15,24 @@ public class FaultyConnectionTest {
     private FaultyConnection faultyConnection;
     private Random mockRandom;
 
-    @BeforeEach void objectsInitialization() {
+    @BeforeEach
+    void objectsInitialization() {
         faultyConnection = new FaultyConnection();
         mockRandom = Mockito.mock(Random.class);
     }
 
-    @Test @DisplayName("Проблемное соединение выполняет команду") void testFaultyConnectionFails() {
+    @Test
+    @DisplayName("Проблемное соединение выполняет команду") void testFaultyConnectionFails() {
         // given
         when(mockRandom.nextDouble()).thenReturn(1.0);
         faultyConnection.setRandom(mockRandom);
 
-        // when & then
+        // expect
         assertDoesNotThrow(() -> faultyConnection.execute("apt update && apt upgrade -y"));
     }
 
-    @Test @DisplayName("Проблемное соединение падает") void testFaultyConnectionCompletesCommad() {
+    @Test
+    @DisplayName("Проблемное соединение падает") void testFaultyConnectionCompletesCommad() {
         // given
         when(mockRandom.nextDouble()).thenReturn(0.1);
         faultyConnection.setRandom(mockRandom);

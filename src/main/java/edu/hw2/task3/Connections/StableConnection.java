@@ -14,12 +14,12 @@ public class StableConnection implements Connection {
     }
 
     @Override
-
     public void execute(String command) {
         logger.info("Выполнение операциии в рамках СТАБИЛЬНОГО соединения ");
     }
 
-    @Override public void close() throws Exception {
+    @Override
+    public void close() throws Exception {
         logger.info("СТАБИЛЬНОЕ соединение завершило операцию; ресурсы высвобождены");
     }
 }

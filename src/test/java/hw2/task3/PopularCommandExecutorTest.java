@@ -17,12 +17,14 @@ public class PopularCommandExecutorTest {
     private ConnectionManager mockManager;
     private PopularCommandExecutor executor;
 
-    @BeforeEach public void objectsInitialization() {
+    @BeforeEach
+    public void objectsInitialization() {
         mockManager = Mockito.mock(ConnectionManager.class);
         executor = new PopularCommandExecutor(mockManager, 10);
     }
 
-    @Test @DisplayName("Невыполнение команды в течение n-го кол-ва попыток с выдачей результирующего исключения ")
+    @Test
+    @DisplayName("Невыполнение команды в течение n-го кол-ва попыток с выдачей результирующего исключения ")
     void testConnectionFailsToExecuteTaskWithinAllAttempts() {
         // given
         Connection mockConnection = Mockito.mock(FaultyConnection.class);

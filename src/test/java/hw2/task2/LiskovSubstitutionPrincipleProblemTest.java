@@ -12,7 +12,8 @@ public class LiskovSubstitutionPrincipleProblemTest {
         return new Arguments[] {Arguments.of(new Rectangle(0, 0)), Arguments.of(new Square(0))};
     }
 
-    @ParameterizedTest @MethodSource("rectangles") void rectangleArea(Rectangle rect) {
+    @ParameterizedTest
+    @MethodSource("rectangles") void rectangleArea(Rectangle rect) {
         assertThat(rect.setWidth(20).setHeight(10).area()).isEqualTo(200.0);
     }
 }

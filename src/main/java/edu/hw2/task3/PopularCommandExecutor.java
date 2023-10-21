@@ -9,7 +9,7 @@ public final class PopularCommandExecutor {
     private final ConnectionManager manager;
     private final int maxAttempts;
 
-    Logger logger;
+    private final Logger logger;
 
     public PopularCommandExecutor(ConnectionManager manager, int maxAttempts) {
         this.manager = manager;

@@ -9,7 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CallingInfoTest {
 
-    @Test @DisplayName("Отображение имени тестового-класса и имени функции теста") public void testCallingInfo() {
+    @Test
+    @DisplayName("Отображение имени тестового-класса и имени функции теста") public void testCallingInfo() {
         // given
         String expectedClassName = this.getClass().getName();
 

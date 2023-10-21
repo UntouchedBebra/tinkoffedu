@@ -16,12 +16,14 @@ class DefaultConnectionManagerTest {
     private DefaultConnectionManager defaultConnectionManager;
     private Random mockRandom;
 
-    @BeforeEach void objectsInitialization() {
+    @BeforeEach
+    void objectsInitialization() {
         defaultConnectionManager = new DefaultConnectionManager();
         mockRandom = Mockito.mock(Random.class);
     }
 
-    @Test @DisplayName("Возвращение стабильного соединения через стандартный менеджер соединений")
+    @Test
+    @DisplayName("Возвращение стабильного соединения через стандартный менеджер соединений")
     void testStableConnectionReturningFromDefaultConnectionManager() {
         // given
         defaultConnectionManager.setRandom(mockRandom);
@@ -34,7 +36,8 @@ class DefaultConnectionManagerTest {
         assertTrue(newConnection instanceof StableConnection);
     }
 
-    @Test @DisplayName("Возвращение проблемного соединения через стандартный менеджер соединений")
+    @Test
+    @DisplayName("Возвращение проблемного соединения через стандартный менеджер соединений")
     void testFaultyConnectionReturningFromDefaultConnectionManager() {
         // given
         defaultConnectionManager.setRandom(mockRandom);

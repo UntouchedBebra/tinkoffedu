@@ -5,7 +5,8 @@ import edu.hw2.task3.Connections.FaultyConnection;
 
 public class FaultyConnectionManager implements ConnectionManager {
 
-    @Override public Connection getConnection() {
+    @Override
+    public Connection getConnection() {
         return new FaultyConnection();
     }
 }

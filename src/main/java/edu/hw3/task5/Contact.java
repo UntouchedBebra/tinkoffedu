@@ -20,14 +20,16 @@ public class Contact implements Comparable<Contact> {
         return lastName;
     }
 
-    @Override public int compareTo(@NotNull Contact o) {
-        if (this.lastName == null || o.lastName == null) {
-            return this.firstName.compareTo(o.firstName);
+    @Override
+    public int compareTo(@NotNull Contact o) {
+        if (this.lastName == null || o.getLastName() == null) {
+            return this.firstName.compareTo(o.getFirstName());
         }
-        return this.lastName.compareTo(o.lastName);
+        return this.lastName.compareTo(o.getLastName());
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return String.format("%s %s", firstName, (lastName != null ? lastName : ""));
     }
 }

@@ -5,8 +5,5 @@ public class StockMarketException extends RuntimeException {
         super(info);
     }
 
-    public StockMarketException(String info, Exception cause) {
-        super(info, cause);
-    }
 
 }

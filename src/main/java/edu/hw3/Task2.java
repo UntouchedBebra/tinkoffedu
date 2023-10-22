@@ -2,6 +2,7 @@ package edu.hw3;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public final class Task2 {
 
@@ -9,50 +10,49 @@ public final class Task2 {
 
     }
 
-    public static ArrayList<String> getBalancedClustersPointers(String messyBrackets) {
+    public static ArrayList<String> getBalancedClustersStack(String messyBrackets) {
+        if (isStringValid(messyBrackets)) {
+            ArrayDeque<Character> bracketStack = new ArrayDeque<>();
 
-        ArrayList<String> clustersStore = new ArrayList<>();
+            ArrayList<String> clustersStore = new ArrayList<>();
+            StringBuilder newCluster = new StringBuilder();
 
-        int clusterBalance = 0;
+            for (char bracket : messyBrackets.toCharArray()) {
+                if (bracket == '(') {
+                    bracketStack.push(bracket);
+                } else {
+                    try {
+                        bracketStack.pop();
+                    } catch (NoSuchElementException exception) {
+                        throw new RuntimeException("Кластеризация невозможна", exception);
+                    }
+                }
 
-        int startIndexOfCluster = 0;
-        int endIndexOfCluster = 0;
+                newCluster.append(bracket);
 
-        for (char bracket : messyBrackets.toCharArray()) {
-            clusterBalance = (bracket == '(') ? ++clusterBalance : --clusterBalance;
-            endIndexOfCluster++;
-            if (clusterBalance == 0) {
-                clustersStore.add(messyBrackets.substring(startIndexOfCluster, endIndexOfCluster));
-                startIndexOfCluster = endIndexOfCluster;
+                if (bracketStack.isEmpty()) {
+                    clustersStore.add(newCluster.toString());
+                    newCluster = new StringBuilder();
+                }
+
             }
+            return clustersStore;
+        } else {
+            throw new RuntimeException("Невалидная строка");
         }
-
-        return clustersStore;
     }
 
-    public static ArrayList<String> getBalancedClustersStack(String messyBrackets) {
-        ArrayDeque<Character> bracketStack = new ArrayDeque<>();
+    private static boolean isStringValid(String inputString) {
+        return inputString != null && !inputString.isEmpty() && stringContainsOnlyRoundBrackets(inputString);
+    }
 
-        ArrayList<String> clustersStore = new ArrayList<>();
-        StringBuilder newCluster = new StringBuilder();
-
-
-        for (char bracket : messyBrackets.toCharArray()) {
-            if (bracket == '(') {
-                bracketStack.push(bracket);
-            } else {
-                bracketStack.pop();
+    private static boolean stringContainsOnlyRoundBrackets(String inputString) {
+        for (char symbol : inputString.toCharArray()) {
+            if (symbol != '(' && symbol != ')') {
+                return false;
             }
-
-            newCluster.append(bracket);
-
-            if (bracketStack.isEmpty()) {
-                clustersStore.add(newCluster.toString());
-                newCluster = new StringBuilder();
-            }
-
         }
-        return clustersStore;
+        return true;
     }
 
 }

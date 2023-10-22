@@ -1,5 +1,6 @@
 package edu.hw3.task6;
 
+import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
 public class Stock implements Comparable<Stock> {
@@ -36,7 +37,6 @@ public class Stock implements Comparable<Stock> {
         return price;
     }
 
-
     public String getCode() {
         return code;
     }
@@ -57,6 +57,11 @@ public class Stock implements Comparable<Stock> {
         }
 
         return code.equals(((Stock) obj).getCode());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, price);
     }
 
     @Override

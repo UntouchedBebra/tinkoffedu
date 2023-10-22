@@ -17,6 +17,8 @@ import static edu.hw3.task4.ArabicNumber.THOUSAND;
 
 public final class Task4 {
     private static final LinkedHashMap<Integer, String> ARABIC_TO_ROMAN_DICT;
+    private static final int LOWER_ARABIC_NUMBER_BOUND = 1;
+    private static final int UPPER_ARABIC_NUMBER_BOUND = 3999;
 
     static {
         ARABIC_TO_ROMAN_DICT = new LinkedHashMap<>();
@@ -40,17 +42,21 @@ public final class Task4 {
     }
 
     public static String getRomanNumber(int arabicNumber) {
-        int number = arabicNumber;
-        StringBuilder romanRepresentation = new StringBuilder();
+        if (arabicNumber >= LOWER_ARABIC_NUMBER_BOUND && arabicNumber <= UPPER_ARABIC_NUMBER_BOUND) {
+            int number = arabicNumber;
+            StringBuilder romanRepresentation = new StringBuilder();
 
-        int subtrahendCountInNumber;
-        for (int subtrahend : ARABIC_TO_ROMAN_DICT.keySet()) {
-            while (number >= subtrahend) {
-                romanRepresentation.append(ARABIC_TO_ROMAN_DICT.get(subtrahend));
-                number -= subtrahend;
+            int subtrahendCountInNumber;
+            for (int subtrahend : ARABIC_TO_ROMAN_DICT.keySet()) {
+                while (number >= subtrahend) {
+                    romanRepresentation.append(ARABIC_TO_ROMAN_DICT.get(subtrahend));
+                    number -= subtrahend;
+                }
             }
+            return romanRepresentation.toString();
+        } else {
+            throw new RuntimeException("Данное число невозможно преобразовать в римское");
         }
-        return romanRepresentation.toString();
     }
 
 }

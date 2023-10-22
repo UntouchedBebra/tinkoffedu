@@ -39,9 +39,4 @@ public class MyOwnStockMarket implements StockMarket {
         }
     }
 
-    public static void main(String[] args) {
-        MyOwnStockMarket myOwnStockMarket = new MyOwnStockMarket();
-
-        System.out.println(myOwnStockMarket.mostValuableStock());
-    }
 }

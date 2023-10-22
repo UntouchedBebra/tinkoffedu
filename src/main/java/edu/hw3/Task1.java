@@ -26,15 +26,23 @@ public final class Task1 {
     }
 
     public static String encode(String str) {
-        StringBuilder scrambledString = new StringBuilder();
-        for (char symbol : str.toCharArray()) {
-            if (ATBASH_CIPHER_DICTIONARY.containsKey(symbol)) {
-                scrambledString.append(ATBASH_CIPHER_DICTIONARY.get(symbol));
-            } else {
-                scrambledString.append(symbol);
+        if (isStringValid(str)) {
+            StringBuilder scrambledString = new StringBuilder();
+            for (char symbol : str.toCharArray()) {
+                if (ATBASH_CIPHER_DICTIONARY.containsKey(symbol)) {
+                    scrambledString.append(ATBASH_CIPHER_DICTIONARY.get(symbol));
+                } else {
+                    scrambledString.append(symbol);
+                }
             }
+            return scrambledString.toString();
+        } else {
+            throw new RuntimeException("Введенная строка невалидна");
         }
-        return scrambledString.toString();
+    }
+
+    private static boolean isStringValid(String inputString) {
+        return inputString != null && !inputString.isEmpty();
     }
 
 }

@@ -11,7 +11,7 @@ public final class Task3 {
         HashMap<T, Integer> frequencyDictionary = new HashMap<>();
 
         for (T object : objects) {
-            if (frequencyDictionary.keySet().contains(object)) {
+            if (frequencyDictionary.containsKey(object)) {
                 int updatedWordFrequency = frequencyDictionary.get(object) + 1;
                 frequencyDictionary.put(object, updatedWordFrequency);
             } else {

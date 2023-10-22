@@ -15,7 +15,7 @@ import static edu.hw3.task4.ArabicNumber.ONE;
 import static edu.hw3.task4.ArabicNumber.TEN;
 import static edu.hw3.task4.ArabicNumber.THOUSAND;
 
-public class Task4 {
+public final class Task4 {
     private static final LinkedHashMap<Integer, String> ARABIC_TO_ROMAN_DICT;
 
     static {

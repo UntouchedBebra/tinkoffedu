@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Task5 {
+public final class Task5 {
     private Task5() {
 
     }
@@ -27,10 +27,4 @@ public class Task5 {
         return contactsAsList;
     }
 
-    public static void main(String[] args) {
-        System.out.println(parseContacts(new String[] {"John Locke", "Thomas Aquinas", "David Hume", "Rene Descartes"},
-            "ASC"
-        ));
-        ;
-    }
 }
